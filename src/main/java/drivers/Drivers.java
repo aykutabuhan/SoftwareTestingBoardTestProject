@@ -12,10 +12,6 @@ public class Drivers{
     public void navigateTo(String url){
         m_driver.get(url);
     }
-
-    public Drivers(WebDriver driver){
-        m_driver = driver;
-    }
     @BeforeClass
     public void setUpDriver(){
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
@@ -23,8 +19,9 @@ public class Drivers{
         navigateTo(BASE_URL);
         m_driver.manage().window().maximize();
     }
+
     @AfterClass
-    public void outDriver(){
+    public void quitDriver(){
         m_driver.quit();
     }
 }

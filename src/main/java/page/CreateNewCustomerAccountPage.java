@@ -1,4 +1,4 @@
-package type.pages;
+package page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +20,7 @@ public class CreateNewCustomerAccountPage extends BasePage{
     private WebElement confirmPasswordSpace;
     @FindBy(css = "button[class='action submit primary']")
     private WebElement createAnAccountButton;
+
 
     public CreateNewCustomerAccountPage(WebDriver driver) {
         super(driver);

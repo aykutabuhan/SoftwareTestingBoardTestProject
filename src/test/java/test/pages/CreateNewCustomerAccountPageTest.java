@@ -1,23 +1,21 @@
 package test.pages;
 
 import drivers.Drivers;
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import type.pages.CreateNewCustomerAccountPage;
+import page.CreateNewCustomerAccountPage;
 
 public final class CreateNewCustomerAccountPageTest extends Drivers {
 
-    private final CreateNewCustomerAccountPage m_createNewCustomerAccountPage;
+    private static CreateNewCustomerAccountPage m_createNewCustomerAccountPage;
     private static final String FIRST_NAME = "ExampleName";
     private static final String LAST_NAME = "ExampleLastName";
     private static final String EMAIL = "example1234@gmail.com";
     private static final String PASSWORD = "ExAmpLE123098-^%'&";
 
-    public CreateNewCustomerAccountPageTest(WebDriver driver) {
-        super(driver);
+    @BeforeClass
+    public void start(){
         m_createNewCustomerAccountPage = new CreateNewCustomerAccountPage(m_driver);
-        setUpDriver();
-        outDriver();
     }
 
     @Test
@@ -45,7 +43,7 @@ public final class CreateNewCustomerAccountPageTest extends Drivers {
         m_createNewCustomerAccountPage.fillConfirmPasswordSpace(PASSWORD);
     }
     @Test
-    public void clickCreateAnAccount(){
+    public void clickCreateAnAccount() {
         m_createNewCustomerAccountPage.clickableCreateAnAccountButton();
     }
 }

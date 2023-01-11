@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/aykutabuhan/IdeaProjects/SoftwareTestingBoardTestProject">
+        <classes>
+            <class name="test.pages.CreateNewCustomerAccountPageTest">
+                <methods>
+                    <include name="fillFirstNameTest"/>
+                    <include name="fillLastNameTest"/>
+                    <include name="clickSingUpRadioButton"/>
+                    <include name="fillEmail"/>
+                    <include name="fillPassword"/>
+                    <include name="fillConfirmPassword"/>
+                    <include name="clickCreateAnAccount"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,12 +1,9 @@
 package type.pages;
 
-import drivers.Drivers;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
-
 import java.time.Duration;
-import java.util.List;
 
 public class BasePage{
 

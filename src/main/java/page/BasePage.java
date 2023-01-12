@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage{
 
@@ -19,6 +20,14 @@ public class BasePage{
     public void sendKeys(WebElement element, String text){
         centerElement(element).sendKeys(text);
     }
+
+    public WebElement selectElements(List<WebElement> elements, String text){
+        for (WebElement select : elements)
+            if (select.getText().equalsIgnoreCase(text))
+                return centerElement(select);
+        return null;
+    }
+
     public WebElement centerElement(WebElement element) {
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
@@ -29,10 +38,8 @@ public class BasePage{
     public boolean isDisplayed(WebElement element){
         try {
             waitUntil(ExpectedConditions.visibilityOf(element));
-            System.out.println("Element var!");
             return true;
         }catch (NoSuchElementException e){
-            System.out.println("Element yok!");
             return false;
         }
     }

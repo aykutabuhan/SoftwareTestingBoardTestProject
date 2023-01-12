@@ -39,6 +39,9 @@ public class BasePage{
     public void waitUntil(final ExpectedCondition<?> expectedCondition) {
         waitCondition(DEFAULT_TIME_DURATION).until(expectedCondition);
     }
+    public void waitUntil(final ExpectedCondition<?> expectedCondition, int duration){
+        waitCondition(duration).until(expectedCondition);
+    }
     private Wait<WebDriver> waitCondition(final int duration){
         return new FluentWait<>(m_driver)
                 .pollingEvery(Duration.ofMillis(250))

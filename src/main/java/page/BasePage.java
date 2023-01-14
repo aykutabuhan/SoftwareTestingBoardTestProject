@@ -14,20 +14,22 @@ public class BasePage{
 
     public BasePage(WebDriver driver) {
         m_driver = driver;
-        m_webDriverWait = new WebDriverWait(m_driver, Duration.ofSeconds(5));
+        m_webDriverWait = new WebDriverWait(m_driver, Duration.ofSeconds(DEFAULT_TIME_DURATION));
         PageFactory.initElements(m_driver, this);
     }
     public void sendKeys(WebElement element, String text){
         centerElement(element).sendKeys(text);
     }
-
     public WebElement selectElements(List<WebElement> elements, String text){
         for (WebElement select : elements)
             if (select.getText().equalsIgnoreCase(text))
                 return centerElement(select);
         return null;
     }
-
+    public void selectAndClickAllOfElements(List<WebElement> elements){
+        for (WebElement element : elements)
+            m_webDriverWait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
     public WebElement centerElement(WebElement element) {
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"

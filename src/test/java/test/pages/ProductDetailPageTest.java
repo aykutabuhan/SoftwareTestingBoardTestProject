@@ -17,7 +17,6 @@ public class ProductDetailPageTest extends Drivers {
     public void start(){
         setUpDriver(baseURL);
         m_productDetailPage = new ProductDetailPage(m_driver);
-
     }
     @AfterClass
     public void finish(){

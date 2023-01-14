@@ -26,7 +26,6 @@ public final class CreateNewCustomerAccountPageTest extends Drivers {
     public void finish(){
         quitDriver();
     }
-
     @Test
     public void fillFirstNameTest(){
         m_createNewCustomerAccountPage.fillFirstNameSpace(FIRST_NAME);

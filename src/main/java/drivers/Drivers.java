@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Drivers{
-
     protected WebDriver m_driver;
     public void navigateTo(String url){
         m_driver.get(url);

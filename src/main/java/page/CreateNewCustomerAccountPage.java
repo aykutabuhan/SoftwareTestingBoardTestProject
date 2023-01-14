@@ -21,7 +21,6 @@ public class CreateNewCustomerAccountPage extends BasePage{
     @FindBy(css = "button[class='action submit primary']")
     private WebElement createAnAccountButton;
 
-
     public CreateNewCustomerAccountPage(WebDriver driver) {
         super(driver);
     }

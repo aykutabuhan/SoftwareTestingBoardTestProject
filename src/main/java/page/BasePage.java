@@ -30,6 +30,9 @@ public class BasePage{
         for (WebElement element : elements)
             m_webDriverWait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
+    public void clickElementListWithIndexNo(List<WebElement> elements, int indexNo){
+        m_webDriverWait.until(ExpectedConditions.elementToBeClickable(centerElement(elements.get(indexNo)))).click();
+    }
     public WebElement centerElement(WebElement element) {
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"

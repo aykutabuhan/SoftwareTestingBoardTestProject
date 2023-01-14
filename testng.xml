@@ -23,6 +23,16 @@
                     <include name="clickableToAddToCartButton"/>
                 </methods>
             </class>
+            <class name="test.pages.ProductListPageTest">
+                <methods>
+                    <include name="clickAllOfShoppingOptionsMenu"/>
+                    <include name="showNumberOfProductListOnPage"/>
+                    <include name="sortByProducts"/>
+                    <include name="clickToFirstProduct"/>
+                    <include name="selectSizeAndColor"/>
+                    <include name="clickAddToCart"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

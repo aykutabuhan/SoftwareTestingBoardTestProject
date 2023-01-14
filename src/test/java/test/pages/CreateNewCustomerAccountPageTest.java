@@ -16,7 +16,6 @@ public final class CreateNewCustomerAccountPageTest extends Drivers {
     private static final String LAST_NAME = "ExampleLastName";
     private static final String EMAIL = "example1234@gmail.com";
     private static final String PASSWORD = "ExAmpLE123098-^%'&";
-
     @BeforeClass
     public void start(){
         setUpDriver(baseURL);

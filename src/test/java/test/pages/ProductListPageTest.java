@@ -6,16 +6,22 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductListPage;
+import util.FixedVariateUtil;
 import util.PropertyUtil;
 
 public class ProductListPageTest extends Drivers {
 
     private ProductListPage m_productListPage;
-    private final String NUMBER = "36";
-    private final int INDEX_NO = 0;
-    private final String PRODUCTS_SIZE = "S";
-    private final int COLOR_NO = 1;
-    private final String SORT_PRODUCTS = "Price";
+    private final String NUMBER =  FixedVariateUtil.getFixedVariate("productNumberForShowOnThePage",
+            "fixedVariate.properties");
+    private final int INDEX_NO = Integer.parseInt(FixedVariateUtil.getFixedVariate("productListNumber",
+            "fixedVariate.properties"));
+    private final String PRODUCTS_SIZE = FixedVariateUtil.getFixedVariate("productSize",
+            "fixedVariate.properties");
+    private final int COLOR_NO = Integer.parseInt(FixedVariateUtil.getFixedVariate(
+            "productColorNumber", "fixedVariate.properties"));
+    private final String SORT_PRODUCTS = FixedVariateUtil.getFixedVariate("productSort",
+            "fixedVariate.properties");
     private static final String baseURL = PropertyUtil.getProperty("HoodieProductListURL",
             "config.properties");
     @BeforeClass

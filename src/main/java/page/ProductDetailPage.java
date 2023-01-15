@@ -19,6 +19,8 @@ public class ProductDetailPage extends BasePage{
     private WebElement addToCartButton;
     @FindBy(css = "div[class='product data items'] div a")
     private WebElement productDetailAndInformation;
+    @FindBy(css = "div[class=\"swatch-attribute size\"] span[class=\"swatch-attribute-selected-option\"]")
+    private WebElement sizeString;
 
     public ProductDetailPage(WebDriver driver) {
         super(driver);

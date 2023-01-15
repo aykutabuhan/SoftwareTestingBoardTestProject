@@ -18,7 +18,7 @@ public class ProductDetailPage extends BasePage{
     @FindBy(css = "button[id='product-addtocart-button']")
     private WebElement addToCartButton;
     @FindBy(css = "div[class='product data items'] div a")
-    private WebElement productDetailAndInformation;
+    private List<WebElement> productDetailAndInformation;
     @FindBy(css = "div[class=\"swatch-attribute size\"] span[class=\"swatch-attribute-selected-option\"]")
     private WebElement sizeString;
 
@@ -35,6 +35,10 @@ public class ProductDetailPage extends BasePage{
     public void entryNewQuantity(String quantity){
         m_webDriverWait.until(ExpectedConditions.visibilityOf(quantityField)).clear();
         sendKeys(quantityField, quantity);
+    }
+    public void clickProductDataItems(String text){
+        m_webDriverWait.until(ExpectedConditions.elementToBeClickable(selectElements(productDetailAndInformation,
+                text))).click();
     }
     public void addToCartButton(){
         centerElement(addToCartButton).click();

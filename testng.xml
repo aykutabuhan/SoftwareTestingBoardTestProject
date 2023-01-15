@@ -20,6 +20,7 @@
                     <include name="selectHoodieSize"/>
                     <include name="selectHoodieColor"/>
                     <include name="quantityOfHoodie"/>
+                    <include name="informationFieldAboutProduct"/>
                     <include name="clickableToAddToCartButton"/>
                 </methods>
             </class>

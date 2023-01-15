@@ -14,6 +14,8 @@ public class ProductDetailPageTest extends Drivers {
                                                                             "fixedVariate.properties");
     private static final String QTY = FixedVariateUtil.getFixedVariate("productQuantity",
                                                                             "fixedVariate.properties");
+    private static final String infoName = FixedVariateUtil.getFixedVariate("productInformation",
+            "fixedVariate.properties");
     private static final String baseURL = PropertyUtil.getProperty("HoodieProductDetailURL",
             "config.properties");
     @BeforeClass
@@ -36,6 +38,10 @@ public class ProductDetailPageTest extends Drivers {
     @Test
     public void quantityOfHoodie(){
         m_productDetailPage.entryNewQuantity(QTY);
+    }
+    @Test
+    public void informationFieldAboutProduct(){
+        m_productDetailPage.clickProductDataItems(infoName);
     }
     @Test
     public void clickableToAddToCartButton(){

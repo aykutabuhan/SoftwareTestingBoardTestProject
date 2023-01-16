@@ -6,16 +6,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductDetailPage;
-import util.FixedVariateUtil;
 import util.PropertyUtil;
 
 public class ProductDetailPageTest extends Drivers {
     private static ProductDetailPage m_productDetailPage;
-    private static final String SIZE = FixedVariateUtil.getFixedVariate("productSize",
-                                                                            "fixedVariate.properties");
+    private static final String SIZE = "L";
     private static final String COLOR = "Lavender";
-    private static final String QTY = FixedVariateUtil.getFixedVariate("productQuantity",
-                                                                            "fixedVariate.properties");
+    private static final String QTY = "3";
     private static final String baseURL = PropertyUtil.getProperty("HoodieProductDetailURL",
             "config.properties");
     private static final String MESSAGE = "You added Marco Lightweight Active Hoodie to your shopping cart.";

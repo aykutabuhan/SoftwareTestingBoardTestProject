@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.NoSuchElementException;
-
 public class CreateNewCustomerAccountPage extends BasePage{
     @FindBy(css = "input[id='firstname']")
     private WebElement firstNameSpace;
@@ -32,13 +30,13 @@ public class CreateNewCustomerAccountPage extends BasePage{
         sendKeys(m_webDriverWait.until(ExpectedConditions.visibilityOf(firstNameSpace)), firstName);
     }
     public String getFirstName(){
-        return getText(firstNameSpace);
+        return getValue(firstNameSpace);
     }
     public void fillLastNameSpace(String lastName){
         sendKeys(m_webDriverWait.until(ExpectedConditions.visibilityOf(lastNameSpace)), lastName);
     }
     public String getLastName(){
-        return getText(lastNameSpace);
+        return getValue(lastNameSpace);
     }
     public void clickSignUpRadioButton(){
         m_webDriverWait.until(ExpectedConditions.elementToBeClickable(
@@ -51,19 +49,19 @@ public class CreateNewCustomerAccountPage extends BasePage{
         sendKeys(m_webDriverWait.until(ExpectedConditions.visibilityOf(emailSpace)), email);
     }
     public String getEmail(){
-        return getText(emailSpace);
+        return getValue(emailSpace);
     }
     public void fillPasswordSpace(String password){
         sendKeys(m_webDriverWait.until(ExpectedConditions.visibilityOf(passwordSpace)), password);
     }
     public String getPassword(){
-        return getText(passwordSpace);
+        return getValue(passwordSpace);
     }
     public void fillConfirmPasswordSpace(String passwordAgain){
         sendKeys(m_webDriverWait.until(ExpectedConditions.visibilityOf(confirmPasswordSpace)), passwordAgain);
     }
     public String getConfirmPassword(){
-        return getText(confirmPasswordSpace);
+        return getValue(confirmPasswordSpace);
     }
     public void clickableCreateAnAccountButton(){
         m_webDriverWait.until(ExpectedConditions.elementToBeClickable(createAnAccountButton)).click();

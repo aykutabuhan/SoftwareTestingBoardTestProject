@@ -1,6 +1,7 @@
 package test.pages;
 
 import drivers.Drivers;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,8 +15,9 @@ public final class CreateNewCustomerAccountPageTest extends Drivers {
                                                                                 "config.properties");
     private static final String FIRST_NAME = "ExampleName";
     private static final String LAST_NAME = "ExampleLastName";
-    private static final String EMAIL = "example1234@gmail.com";
+    private static final String EMAIL = "example12345@gmail.com";
     private static final String PASSWORD = "ExAmpLE123098-^%'&";
+    private static final String MESSAGE = "Thank you for registering with Fake Online Clothing Store.";
     @BeforeClass
     public void start(){
         setUpDriver(baseURL);
@@ -26,31 +28,32 @@ public final class CreateNewCustomerAccountPageTest extends Drivers {
         quitDriver();
     }
     @Test
-    public void fillFirstNameTest(){
+    public void fillPersonalInformationTest(){
         m_createNewCustomerAccountPage.fillFirstNameSpace(FIRST_NAME);
-    }
-    @Test
-    public void fillLastNameTest(){
+        Assert.assertEquals(m_createNewCustomerAccountPage.getFirstName(), FIRST_NAME,
+                "Name is not correct!");
         m_createNewCustomerAccountPage.fillLastNameSpace(LAST_NAME);
-    }
-    @Test
-    public void clickSingUpRadioButton(){
+        Assert.assertEquals(m_createNewCustomerAccountPage.getLastName(), LAST_NAME,
+                "LastName is not correct!");
         m_createNewCustomerAccountPage.clickSignUpRadioButton();
+        Assert.assertTrue(m_createNewCustomerAccountPage.isSelectedRadioButton(),
+                "Radio Button is not selected!");
     }
     @Test
-    public void fillEmail(){
+    public void fillSignInInformationTest(){
         m_createNewCustomerAccountPage.fillEmailSpace(EMAIL);
-    }
-    @Test
-    public void fillPassword(){
+        Assert.assertEquals(m_createNewCustomerAccountPage.getEmail(), EMAIL,"E-mail is not correct!");
         m_createNewCustomerAccountPage.fillPasswordSpace(PASSWORD);
-    }
-    @Test
-    public void fillConfirmPassword(){
+        Assert.assertEquals(m_createNewCustomerAccountPage.getPassword(), PASSWORD,
+                "Password is not correct!");
         m_createNewCustomerAccountPage.fillConfirmPasswordSpace(PASSWORD);
+        Assert.assertEquals(m_createNewCustomerAccountPage.getConfirmPassword(), PASSWORD,
+                "Confirm Password is not correct!");
     }
     @Test
-    public void clickCreateAnAccount() {
+    public void clickCreateAnAccountTest(){
         m_createNewCustomerAccountPage.clickableCreateAnAccountButton();
+        Assert.assertEquals(m_createNewCustomerAccountPage.getVerificationMessage(), MESSAGE,
+                "New account creation failed");
     }
 }

@@ -20,6 +20,12 @@ public class BasePage{
     public void sendKeys(WebElement element, String text){
         centerElement(element).sendKeys(text);
     }
+    public String getValue(WebElement element){
+        return centerElement(element).getAttribute("value");
+    }
+    public String getText(WebElement element){
+        return element.getText();
+    }
     public WebElement selectElements(List<WebElement> elements, String text){
         for (WebElement select : elements)
             if (select.getText().equalsIgnoreCase(text))

@@ -32,7 +32,7 @@ public class BasePage{
                 return centerElement(select);
         return null;
     }
-    public void selectAndClickAllOfElements(List<WebElement> elements){
+    public void ClickAllOfElements(List<WebElement> elements){
         for (WebElement element : elements)
             m_webDriverWait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }

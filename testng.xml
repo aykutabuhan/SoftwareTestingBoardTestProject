@@ -6,32 +6,22 @@
         <classes>
             <class name="test.pages.CreateNewCustomerAccountPageTest">
                 <methods>
-                    <include name="fillFirstNameTest"/>
-                    <include name="fillLastNameTest"/>
-                    <include name="clickSingUpRadioButton"/>
-                    <include name="fillEmail"/>
-                    <include name="fillPassword"/>
-                    <include name="fillConfirmPassword"/>
-                    <include name="clickCreateAnAccount"/>
+                    <include name="fillPersonalInformationTest"/>
+                    <include name="fillSignInInformationTest"/>
+                    <include name="clickCreateAnAccountTest"/>
                 </methods>
             </class>
             <class name="test.pages.ProductDetailPageTest">
                 <methods>
-                    <include name="selectHoodieSize"/>
-                    <include name="selectHoodieColor"/>
-                    <include name="quantityOfHoodie"/>
-                    <include name="informationFieldAboutProduct"/>
+                    <include name="productSelectTest"/>
                     <include name="clickableToAddToCartButton"/>
                 </methods>
             </class>
             <class name="test.pages.ProductListPageTest">
                 <methods>
-                    <include name="clickAllOfShoppingOptionsMenu"/>
-                    <include name="showNumberOfProductListOnPage"/>
-                    <include name="sortByProducts"/>
-                    <include name="clickToFirstProduct"/>
-                    <include name="selectSizeAndColor"/>
-                    <include name="clickAddToCart"/>
+                    <include name="sortTheProductTest"/>
+                    <include name="addToProductInTheCart"/>
+                    <include name="clickFirstProduct"/>
                 </methods>
             </class>
         </classes>

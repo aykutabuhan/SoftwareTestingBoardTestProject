@@ -26,11 +26,23 @@ public class BasePage{
     public String getText(WebElement element){
         return element.getText();
     }
+    public String getText(List<WebElement> elements, String text){
+        return selectElements(elements, text).getText();
+    }
+    public boolean getAttributeText(List<WebElement> elements, String htmlField, String htmlValue){
+        for (WebElement element : elements)
+            if (element.getAttribute(htmlField).equalsIgnoreCase(htmlValue))
+                return true;
+        return false;
+    }
     public WebElement selectElements(List<WebElement> elements, String text){
         for (WebElement select : elements)
             if (select.getText().equalsIgnoreCase(text))
                 return centerElement(select);
         return null;
+    }
+    public WebElement selectElements(List<WebElement> elements, int number){
+        return centerElement(elements.get(number));
     }
     public void ClickAllOfElements(List<WebElement> elements){
         for (WebElement element : elements)

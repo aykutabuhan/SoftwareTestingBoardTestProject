@@ -43,7 +43,7 @@ public class ProductDetailPage extends BasePage{
         return getText(colorText);
     }
     public void entryNewQuantity(String quantity){
-        m_webDriverWait.until(ExpectedConditions.visibilityOf(quantityField)).clear();
+        clearField(quantityField);
         sendKeys(quantityField, quantity);
     }
     public String getQTY(){

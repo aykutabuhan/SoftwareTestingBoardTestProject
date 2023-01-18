@@ -78,4 +78,10 @@ public class BasePage{
                 .withTimeout(Duration.ofSeconds(duration))
                 .ignoring(NoSuchElementException.class, WebDriverException.class);
     }
+    public void clearField(WebElement element){
+        m_webDriverWait.until(ExpectedConditions.visibilityOf(element)).clear();
+    }
+    public void navigateTo(String url){
+        m_driver.get(url);
+    }
 }

@@ -27,8 +27,7 @@ public class ProductListPage extends BasePage{
     private WebElement verificationMessage;
     @FindBy(css = "span[class*='counter']")
     private WebElement cartCounter;
-    @FindBy(css = "select[id='limiter'] option")
-    private List<WebElement> listOfShowPerPage;
+
     private static final String HTML_FIELD = "class";
     public ProductListPage(WebDriver driver) {
         super(driver);
@@ -57,7 +56,7 @@ public class ProductListPage extends BasePage{
         return getAttributeText(listOfProductColor, HTML_FIELD, HTML_VALUE);
     }
     public void clickAddToCartButton(){
-        centerElement(addToCartButton).click();
+        m_webDriverWait.until(ExpectedConditions.visibilityOf(centerElement(addToCartButton))).click();
     }
     public String getVerificationMessage(){
         waitUntil(ExpectedConditions.visibilityOf(verificationMessage));

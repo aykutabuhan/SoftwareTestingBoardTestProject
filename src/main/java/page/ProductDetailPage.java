@@ -1,5 +1,6 @@
 package page;
 
+import listeners.Listeners;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class ProductDetailPage extends BasePage{
+public class ProductDetailPage extends BasePage {
 
     @FindBy(css = "div[aria-labelledby*='option-label-size'] div")
     private List<WebElement> sizeOfBodies;

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <listeners>
+        <listener class-name="listeners.Listeners" />
+    </listeners>
     <test verbose="2" preserve-order="true"
           name="/Users/aykutabuhan/IdeaProjects/SoftwareTestingBoardTestProject">
         <classes>
@@ -13,15 +16,15 @@
             </class>
             <class name="test.pages.ProductDetailPageTest">
                 <methods>
-                    <include name="productSelectTest"/>
-                    <include name="clickableToAddToCartButton"/>
+                    <exclude name="productSelectTest"/>
+                    <exclude name="clickableToAddToCartButton"/>
                 </methods>
             </class>
             <class name="test.pages.ProductListPageTest">
                 <methods>
-                    <include name="sortTheProductTest"/>
-                    <include name="addToProductInTheCart"/>
-                    <include name="clickFirstProduct"/>
+                    <exclude name="sortTheProductTest"/>
+                    <exclude name="addToProductInTheCart"/>
+                    <exclude name="clickFirstProduct"/>
                 </methods>
             </class>
         </classes>

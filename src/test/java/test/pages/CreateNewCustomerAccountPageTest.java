@@ -1,15 +1,16 @@
 package test.pages;
 
-import drivers.Drivers;
+import listeners.Listeners;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import page.CreateNewCustomerAccountPage;
 import util.URLNavigator;
 
 
-public final class CreateNewCustomerAccountPageTest extends Drivers {
+public final class CreateNewCustomerAccountPageTest extends Listeners{
 
     private static CreateNewCustomerAccountPage m_createNewCustomerAccountPage;
     private static final String FIRST_NAME = "ExampleName";
@@ -18,11 +19,14 @@ public final class CreateNewCustomerAccountPageTest extends Drivers {
                                                                                         .concat("@gmail.com");
     private static final String PASSWORD = "ExAmpLE123098-^%'&";
     private static final String MESSAGE = "Thank you for registering with Fake Online Clothing Store.";
+
+
     @BeforeClass
     public void start(){
-        m_createNewCustomerAccountPage = new CreateNewCustomerAccountPage(m_driver);
+        m_createNewCustomerAccountPage = new CreateNewCustomerAccountPage(ms_webDriver);
         m_createNewCustomerAccountPage.navigateTo(URLNavigator.goToCreateNewAccountPage());
     }
+
     @Test
     public void fillPersonalInformationTest(){
         m_createNewCustomerAccountPage.fillFirstNameSpace(FIRST_NAME);

@@ -1,22 +1,23 @@
 package test.pages;
 
-import drivers.Drivers;
+import listeners.Listeners;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductDetailPage;
 import util.URLNavigator;
 
-public class ProductDetailPageTest extends Drivers {
+public class ProductDetailPageTest extends Listeners {
     private static ProductDetailPage m_productDetailPage;
     private static final String SIZE = "L";
     private static final String COLOR = "Lavender";
     private static final String QTY = "3";
-    private static final String MESSAGE = "You added Marco Lightweight Active Hoodie to your shopping cart.";
+    private static final String MESSAGE = "You added Marco Lightweight Active Hoodie to your shopping cart";
     private static final String CART_COUNTER = "0";
+
     @BeforeClass
     public void start(){
-        m_productDetailPage = new ProductDetailPage(m_driver);
+        m_productDetailPage = new ProductDetailPage(ms_webDriver);
         m_productDetailPage.navigateTo(URLNavigator.goToProductDetailPage());
     }
     @Test

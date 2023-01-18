@@ -1,14 +1,13 @@
 package test.pages;
 
-import drivers.Drivers;
-
+import listeners.Listeners;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductListPage;
 import util.URLNavigator;
 
-public class ProductListPageTest extends Drivers {
+public class ProductListPageTest extends Listeners {
 
     private ProductListPage m_productListPage;
     private static final int PRODUCT_LIST_NUMBER = 0;
@@ -23,7 +22,7 @@ public class ProductListPageTest extends Drivers {
 
     @BeforeClass
     public void start(){
-        m_productListPage = new ProductListPage(m_driver);
+        m_productListPage = new ProductListPage(ms_webDriver);
         m_productListPage.navigateTo(URLNavigator.goToProductListPage());
     }
     @Test

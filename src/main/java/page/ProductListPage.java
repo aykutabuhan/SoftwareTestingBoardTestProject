@@ -56,7 +56,7 @@ public class ProductListPage extends BasePage{
         return getAttributeText(listOfProductColor, HTML_FIELD, HTML_VALUE);
     }
     public void clickAddToCartButton(){
-        m_webDriverWait.until(ExpectedConditions.visibilityOf(centerElement(addToCartButton))).click();
+        m_webDriverWait.until(ExpectedConditions.elementToBeClickable(centerElement(addToCartButton))).click();
     }
     public String getVerificationMessage(){
         waitUntil(ExpectedConditions.visibilityOf(verificationMessage));

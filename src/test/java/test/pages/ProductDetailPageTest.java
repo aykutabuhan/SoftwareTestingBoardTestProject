@@ -2,29 +2,22 @@ package test.pages;
 
 import drivers.Drivers;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductDetailPage;
-import util.PropertyUtil;
+import util.URLNavigator;
 
 public class ProductDetailPageTest extends Drivers {
     private static ProductDetailPage m_productDetailPage;
     private static final String SIZE = "L";
     private static final String COLOR = "Lavender";
     private static final String QTY = "3";
-    private static final String baseURL = PropertyUtil.getProperty("HoodieProductDetailURL",
-            "config.properties");
     private static final String MESSAGE = "You added Marco Lightweight Active Hoodie to your shopping cart.";
     private static final String CART_COUNTER = "0";
     @BeforeClass
     public void start(){
-        setUpDriver(baseURL);
         m_productDetailPage = new ProductDetailPage(m_driver);
-    }
-    @AfterClass
-    public void finish(){
-        quitDriver();
+        m_productDetailPage.navigateTo(URLNavigator.goToProductDetailPage());
     }
     @Test
     public void productSelectTest(){

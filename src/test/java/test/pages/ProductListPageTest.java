@@ -3,11 +3,10 @@ package test.pages;
 import drivers.Drivers;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductListPage;
-import util.PropertyUtil;
+import util.URLNavigator;
 
 public class ProductListPageTest extends Drivers {
 
@@ -21,18 +20,12 @@ public class ProductListPageTest extends Drivers {
     private static final String HTML_SIZE_MESSAGE = "swatch-option text selected";
     private static final String HTML_COLOR_MESSAGE = "swatch-option color selected";
     private static final String CART_COUNTER = "0";
-    private static final String baseURL = PropertyUtil.getProperty("HoodieProductListURL",
-            "config.properties");
+
     @BeforeClass
     public void start(){
-        setUpDriver(baseURL);
         m_productListPage = new ProductListPage(m_driver);
+        m_productListPage.navigateTo(URLNavigator.goToProductListPage());
     }
-    @AfterClass
-    public void finish(){
-        quitDriver();
-    }
-
     @Test
     public void sortTheProductTest(){
         m_productListPage.productListing(SORT_PRODUCTS);

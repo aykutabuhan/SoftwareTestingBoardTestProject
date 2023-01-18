@@ -1,31 +1,27 @@
 package test.pages;
 
 import drivers.Drivers;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.CreateNewCustomerAccountPage;
-import util.PropertyUtil;
+import util.URLNavigator;
+
 
 public final class CreateNewCustomerAccountPageTest extends Drivers {
 
     private static CreateNewCustomerAccountPage m_createNewCustomerAccountPage;
-    private static final String baseURL = PropertyUtil.getProperty("CreateAccountURL",
-                                                                                "config.properties");
     private static final String FIRST_NAME = "ExampleName";
     private static final String LAST_NAME = "ExampleLastName";
-    private static final String EMAIL = "example12345@gmail.com";
+    private static final String EMAIL = RandomStringUtils.random(10, true, false)
+                                                                                        .concat("@gmail.com");
     private static final String PASSWORD = "ExAmpLE123098-^%'&";
     private static final String MESSAGE = "Thank you for registering with Fake Online Clothing Store.";
     @BeforeClass
     public void start(){
-        setUpDriver(baseURL);
         m_createNewCustomerAccountPage = new CreateNewCustomerAccountPage(m_driver);
-    }
-    @AfterClass
-    public void finish(){
-        quitDriver();
+        m_createNewCustomerAccountPage.navigateTo(URLNavigator.goToCreateNewAccountPage());
     }
     @Test
     public void fillPersonalInformationTest(){

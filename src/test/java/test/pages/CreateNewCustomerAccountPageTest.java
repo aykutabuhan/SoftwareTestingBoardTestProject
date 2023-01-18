@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import page.CreateNewCustomerAccountPage;
 import util.URLNavigator;
 
-
 public final class CreateNewCustomerAccountPageTest extends Listeners{
 
     private static CreateNewCustomerAccountPage m_createNewCustomerAccountPage;

@@ -18,9 +18,6 @@ public class Listeners implements ITestListener{
     protected static WebDriver ms_webDriver;
     @Override
     public void onTestStart(ITestResult result) {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-        ms_webDriver = new ChromeDriver();
-        ms_webDriver.manage().window().maximize();
         System.out.println(result.getName() + " test case started");
     }
 
@@ -59,6 +56,9 @@ public class Listeners implements ITestListener{
 
     @Override
     public void onStart(ITestContext context) {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+        ms_webDriver = new ChromeDriver();
+        ms_webDriver.manage().window().maximize();
     }
 
     @Override

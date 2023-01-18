@@ -16,15 +16,15 @@
             </class>
             <class name="test.pages.ProductDetailPageTest">
                 <methods>
-                    <exclude name="productSelectTest"/>
-                    <exclude name="clickableToAddToCartButton"/>
+                    <include name="productSelectTest"/>
+                    <include name="clickableToAddToCartButton"/>
                 </methods>
             </class>
             <class name="test.pages.ProductListPageTest">
                 <methods>
-                    <exclude name="sortTheProductTest"/>
-                    <exclude name="addToProductInTheCart"/>
-                    <exclude name="clickFirstProduct"/>
+                    <include name="sortTheProductTest"/>
+                    <include name="addToProductInTheCart"/>
+                    <include name="clickFirstProduct"/>
                 </methods>
             </class>
         </classes>

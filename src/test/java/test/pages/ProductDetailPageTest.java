@@ -12,7 +12,7 @@ public class ProductDetailPageTest extends Listeners {
     private static final String SIZE = "L";
     private static final String COLOR = "Lavender";
     private static final String QTY = "3";
-    private static final String MESSAGE = "You added Marco Lightweight Active Hoodie to your shopping cart";
+    private static final String MESSAGE = "You added Marco Lightweight Active Hoodie to your shopping cart.";
     private static final String CART_COUNTER = "0";
 
     @BeforeClass

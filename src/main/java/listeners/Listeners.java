@@ -1,5 +1,6 @@
 package listeners;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -9,13 +10,16 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 
 public class Listeners implements ITestListener{
 
     protected static WebDriver ms_webDriver;
+
     @Override
     public void onTestStart(ITestResult result) {
         System.out.println(result.getName() + " test case started");
@@ -29,11 +33,12 @@ public class Listeners implements ITestListener{
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("The name of the testcase failed is :" +result.getName());
-
-        File src = ((TakesScreenshot) ms_webDriver).getScreenshotAs(OutputType.FILE);
+        File src =  ((TakesScreenshot) ms_webDriver).getScreenshotAs(OutputType.FILE);
+        Allure.addAttachment("result.getMethod().getMethodName()",
+                new ByteArrayInputStream(((TakesScreenshot) ms_webDriver).getScreenshotAs(OutputType.BYTES)));
         try {
-            FileUtils.copyFile(src, new File(String.format("src/test/java/%s.png",
-                    result.getMethod().getMethodName())));
+            FileUtils.copyFile(src, new File(String.format("src/test/java/test-screenshot/%s&%s.png",
+                    result.getMethod().getMethodName(), LocalDateTime.now())));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

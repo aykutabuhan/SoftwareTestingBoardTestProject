@@ -1,13 +1,13 @@
 package test.pages;
 
-import listeners.Listeners;
+import drivers.Drivers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.ProductDetailPage;
 import util.URLNavigator;
 
-public class ProductDetailPageTest extends Listeners {
+public class ProductDetailPageTest extends Drivers {
     private static ProductDetailPage m_productDetailPage;
     private static final String SIZE = "L";
     private static final String COLOR = "Lavender";
@@ -17,7 +17,7 @@ public class ProductDetailPageTest extends Listeners {
 
     @BeforeClass
     public void start(){
-        m_productDetailPage = new ProductDetailPage(ms_webDriver);
+        m_productDetailPage = new ProductDetailPage(getDriver());
         m_productDetailPage.navigateTo(URLNavigator.goToProductDetailPage());
     }
     @Test

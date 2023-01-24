@@ -1,6 +1,6 @@
 package page;
 
-import listeners.Listeners;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +26,7 @@ public class ProductDetailPage extends BasePage {
     private WebElement addedCartMessageText;
     @FindBy(css = "span[class='counter-number']")
     private WebElement cartCounter;
+
 
     public ProductDetailPage(WebDriver driver) {
         super(driver);

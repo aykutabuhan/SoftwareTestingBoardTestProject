@@ -1,6 +1,6 @@
 package test.pages;
 
-import listeners.Listeners;
+import drivers.Drivers;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import page.CreateNewCustomerAccountPage;
 import util.URLNavigator;
 
-public final class CreateNewCustomerAccountPageTest extends Listeners{
+public final class CreateNewCustomerAccountPageTest extends Drivers {
 
     private static CreateNewCustomerAccountPage m_createNewCustomerAccountPage;
     private static final String FIRST_NAME = "ExampleName";
@@ -22,7 +22,7 @@ public final class CreateNewCustomerAccountPageTest extends Listeners{
 
     @BeforeClass
     public void start(){
-        m_createNewCustomerAccountPage = new CreateNewCustomerAccountPage(ms_webDriver);
+        m_createNewCustomerAccountPage = new CreateNewCustomerAccountPage(getDriver());
         m_createNewCustomerAccountPage.navigateTo(URLNavigator.goToCreateNewAccountPage());
     }
 

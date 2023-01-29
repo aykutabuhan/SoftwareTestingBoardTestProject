@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,10 +15,11 @@ public class Drivers{
     protected ThreadLocal<WebDriver> m_driver = new ThreadLocal<>();
 
     @BeforeClass
-    public void startDriver() throws MalformedURLException {
+    @Parameters({"host", "port"})
+    public void startDriver(String host, String port) throws MalformedURLException {
        // System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
        // m_driver = new ChromeDriver();
-        setDriver(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), new ChromeOptions()));
+        setDriver(new RemoteWebDriver(new URL("http://" +host+ ":" +port+ "/wd/hub"), new ChromeOptions()));
         m_driver.get().manage().window().maximize();
     }
     @AfterClass

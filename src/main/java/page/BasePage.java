@@ -44,7 +44,7 @@ public class BasePage{
     public WebElement selectElements(List<WebElement> elements, int number){
         return centerElement(elements.get(number));
     }
-    public void ClickAllOfElements(List<WebElement> elements){
+    public void clickAllOfElements(List<WebElement> elements){
         for (WebElement element : elements)
             m_webDriverWait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }

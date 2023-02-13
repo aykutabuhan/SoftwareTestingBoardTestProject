@@ -39,7 +39,7 @@ public class ProductDetailPage extends BasePage {
         return getText(sizeText);
     }
     public void selectColorOfHoodie(){
-        ClickAllOfElements(optionOfColors);
+        clickAllOfElements(optionOfColors);
     }
     public String getColor(){
         return getText(colorText);
